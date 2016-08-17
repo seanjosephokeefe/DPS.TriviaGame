@@ -1,11 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
+<!-- declaration for testing, remove for production -->
 <widget xmlns:cdv="http://cordova.apache.org/ns/1.0"
         xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps"
         id="com.seanjosephokeefe.apps.gov.ny.dps.triviagame"
-        version="1.0.0"
+        version="2.0.0"
         xmlns="http://www.w3.org/ns/widgets"
         defaultlocale="en-US">
+			
+<!-- declaration for NYS App
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0"
+        xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps"
+        id="gov.ny.its.dops.UtilityIQChallenge"
+        version="2.0.0"
+        xmlns="http://www.w3.org/ns/widgets"
+        defaultlocale="en-US">
+-->
 
   <name>PSC Utility IQ Challenge</name>
 
