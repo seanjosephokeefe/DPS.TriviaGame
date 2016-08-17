@@ -540,14 +540,14 @@ $(".continueButton").click(function () {
 
             //shows another badge if the user answered the last difficult question correctly
             ShowBadges();
-
+            $(".continueButton").fadeOut();
             //bring the user to the 'CongratulationsScreen' screen because they won the game
             $("#CongratulationsScreen").fadeIn();
 
             //Free cheering sound found here: https://www.youtube.com/watch?v=d3Awl_5c8jI
             playSound('sounds/cheering.mp3');
 
-            //after 7 seconds the congrats message goes away, the map shifts down,
+            //after 5 seconds the congrats message goes away, the map shifts down,
             //the blue and gold banner fades out, and the 'show attendant' message comes up
             setTimeout(function () {
                 $(".congratstext").fadeOut();
@@ -556,12 +556,13 @@ $(".continueButton").click(function () {
                 $(".leftBadges").animate({ top: "160px" }, 600);
                 $(".rightBadges").animate({ top: "160px" }, 600);
                 $(".pscfooter").fadeOut();
-                $(".showAttendant").delay(50000).fadeIn();
-            }, 7000);
+                $(".showAttendant").delay(500).fadeIn();
+                $(".resetButton").delay(1000).fadeIn();
+            }, 3000);
 
             //reset button appears after 5s so the user doesn't accidentally click it 
             //before showing an attendant that they won
-            $(".resetButton").fadeIn();
+            //$(".resetButton").delay(3000).fadeIn();
         }
 
             //send the user to the losing screen
@@ -589,7 +590,10 @@ $(".continueButton").click(function () {
     }
 });
 
-
+$('#continueGame').click(function() {
+    $.unblockUI();
+    $(".resetButton").fadeIn();
+});
 
 /**
 Invoked when the user clicks reset.  This fades out all possible end screens (Congrats & Sorry) and brings up the Home Screen.
@@ -600,6 +604,7 @@ $(".resetButton").click(function () {
     $("#CongratulationsScreen").fadeOut();
     $("#SorryScreen").fadeOut();
     $("#HomeScreen").fadeIn();
+    $(".pscfooter").fadeIn();
     $("#playButton").prop("disabled", false);
     //IF THE SOUND IS CHANGED TO SOMETHING LONGER THAN 30S, THIS IS USED TO PAUSE IT AFTER THE USER CLICKS RESET audio.pause();
 });
